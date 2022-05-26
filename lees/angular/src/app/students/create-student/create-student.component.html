@@ -1,0 +1,100 @@
+<form
+  (ngSubmit)="save()"
+  autocomplete="off"
+  class="form-horizontal"
+  #editUserModal="ngForm"
+>
+  <abp-modal-header
+    [title]="'Add New Student' | localize"
+    (onCloseClick)="bsModalRef.hide()"
+  ></abp-modal-header>
+
+  <div class="modal-body">
+    <div class="form-group row required">
+      <label for="email" class="col-form-label col-md-3">
+        {{ "Email" | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          type="text"
+          class="form-control"
+          name="email"
+          id="email"
+          required
+          [(ngModel)]="student.email"
+        />
+        <!-- #nameModel="ngModel"
+          #nameEl
+        <abp-validation-summary>
+          [control]="nameModel" [controlEl]="nameEl"
+        </abp-validation-summary> -->
+      </div>
+    </div>
+    <div class="form-group row required">
+      <label for="name" class="col-form-label col-md-3">
+        {{ "Name" | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          id="name"
+          required
+          [(ngModel)]="student.name"
+        />
+        <!-- #nameEl
+          #nameModel="ngModel"
+        <abp-validation-summary>
+          [control]="nameModel" [controlEl]="nameEl"
+        </abp-validation-summary> -->
+      </div>
+    </div>
+    <div class="form-group row required">
+      <label for="degree" class="col-form-label col-md-3">
+        {{ "Degree" | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          type="text"
+          class="form-control"
+          name="degree"
+          id="degree"
+          required
+          [(ngModel)]="student.degree"
+        />
+        <!-- #nameModel="ngModel"
+          #nameEl
+        <abp-validation-summary>
+          [control]="nameModel" [controlEl]="nameEl"
+        </abp-validation-summary> -->
+      </div>
+    </div>
+    <div class="form-group row required">
+      <label for="number" class="col-form-label col-md-3">
+        {{ "Number" | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          type="tel"
+          class="form-control"
+          name="number"
+          id="number"
+          required
+          [(ngModel)]="student.number"
+        />
+        <!-- #nameModel="ngModel"
+          #nameEl
+        <abp-validation-summary>
+          [control]="nameModel" [controlEl]="nameEl"
+        </abp-validation-summary> -->
+      </div>
+    </div>
+  </div>
+
+  <abp-modal-footer
+    [cancelDisabled]="saving"
+    [saveDisabled]="!editUserModal.form.valid || saving"
+    (onCancelClick)="bsModalRef.hide()"
+  ></abp-modal-footer>
+</form>
